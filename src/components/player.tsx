@@ -8,7 +8,7 @@ type PlayerProps = {
   audioRef: RefObject<HTMLAudioElement | null>;
   blocked: boolean;
   onUnblock: () => void;
-  onClose: () => void;
+  onClose: (finished: boolean) => void;
   onAccept: () => void;
   onHold: (at: number) => void;
   onProgress: (time: number) => void;
@@ -65,6 +65,10 @@ export function Player({
   }
 
   finishRef.current = finish;
+
+  function close() {
+    onCloseRef.current(endedRef.current);
+  }
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -124,7 +128,7 @@ export function Player({
     const onKey = (event: KeyboardEvent) => {
       const target = event.target;
       if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) return;
-      if (event.key === "Escape") onCloseRef.current();
+      if (event.key === "Escape") onCloseRef.current(endedRef.current);
       if (event.key === " ") {
         event.preventDefault();
         toggleRef.current();
@@ -229,7 +233,7 @@ export function Player({
           chrome || ended ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       >
-        <button type="button" onClick={onClose} aria-label="Voltar" className="grid size-11 place-items-center">
+        <button type="button" onClick={close} aria-label="Voltar" className="grid size-11 place-items-center">
           <X className="size-6" />
         </button>
         <div className="min-w-0">
@@ -255,7 +259,7 @@ export function Player({
               <p className="mt-5 text-lg text-fg/85">Eu não vou me cansar.</p>
               <button
                 type="button"
-                onClick={onClose}
+                onClick={close}
                 className="mt-10 inline-flex h-12 w-full max-w-xs items-center justify-center bg-fg px-6 font-semibold text-bg transition-transform duration-150 ease-out active:scale-[0.96]"
               >
                 Voltar

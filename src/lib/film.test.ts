@@ -16,12 +16,19 @@ describe("clock", () => {
 });
 
 describe("canResume", () => {
-  it("keeps a position after the open and before the last eight seconds", () => {
+  it("keeps a position after the open and before her question", () => {
     assert.equal(canResume(3), false);
     assert.equal(canResume(3.01), true);
-    assert.equal(canResume(RUNTIME - 8), false);
-    assert.equal(canResume(RUNTIME - 8.01), true);
+    assert.equal(canResume(ASK_AT - 0.01), true);
+    assert.equal(canResume(ASK_AT), false);
+    assert.equal(canResume(158.5), false);
     assert.equal(canResume(RUNTIME), false);
+  });
+
+  it("never resumes at a moment that already opens the question", () => {
+    for (let t = 0; t <= RUNTIME; t += 0.25) {
+      assert.equal(canResume(t) && atAsk(t), false, `t=${t}`);
+    }
   });
 });
 

@@ -3,10 +3,9 @@ export const RUNTIME = 168.33;
 export const ASK_AT = 158;
 
 const RESUME_LEAD = 3;
-const RESUME_TAIL = 8;
 
-export function canResume(seconds: number, runtime = RUNTIME): boolean {
-  return Number.isFinite(seconds) && seconds > RESUME_LEAD && seconds < runtime - RESUME_TAIL;
+export function canResume(seconds: number): boolean {
+  return Number.isFinite(seconds) && seconds > RESUME_LEAD && seconds < ASK_AT;
 }
 
 export function atAsk(seconds: number): boolean {

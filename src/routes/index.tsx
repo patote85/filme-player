@@ -70,11 +70,11 @@ function Home() {
     playFrom(mode === "resume" && canResume(progress) ? progress : 0);
   }
 
-  function closePlayer() {
+  function closePlayer(finished: boolean) {
     const audio = audioRef.current;
     const at = audio?.currentTime ?? 0;
     audio?.pause();
-    if (canResume(at)) {
+    if (!finished && canResume(at)) {
       saveProgress(at);
       setProgress(at);
     } else {
