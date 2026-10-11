@@ -103,9 +103,9 @@ export function Browse({
             type="button"
             aria-label="Perfil"
             onClick={onWho}
-            className="grid size-8 place-items-center bg-red text-sm font-semibold"
+            className="grid size-11 place-items-center"
           >
-            D
+            <span className="grid size-8 place-items-center bg-red text-sm font-semibold">D</span>
           </button>
         </div>
       </header>

@@ -288,7 +288,11 @@ export function Player({
                   </a>
                 ))}
               </div>
-              <button type="button" onClick={replay} className="mt-4 block w-full text-sm text-muted">
+              <button
+                type="button"
+                onClick={replay}
+                className="mt-4 flex min-h-11 w-full items-center justify-center text-sm text-muted"
+              >
                 Ouvir de novo
               </button>
             </div>
