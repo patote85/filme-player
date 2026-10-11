@@ -99,7 +99,7 @@ function Home() {
 
   return (
     <>
-      <audio ref={audioRef} src={AUDIO_SRC} preload="auto" />
+      <audio ref={audioRef} src={AUDIO_SRC} preload="metadata" />
       {who ? (
         <Who accepted={accepted} onEnter={() => setWho(false)} />
       ) : (
