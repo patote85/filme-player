@@ -206,7 +206,7 @@ export function Player({
   }
 
   return (
-    <div className="fixed inset-0 z-50 bg-bg text-fg">
+    <div role="dialog" aria-modal="true" aria-label="Filme" className="fixed inset-0 z-50 bg-bg text-fg">
       {scenes.map((item) => (
         <img
           key={item.t}

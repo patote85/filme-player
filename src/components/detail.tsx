@@ -14,7 +14,12 @@ export function Detail({ list, accepted, onToggleList, onClose, onPlay, onPlayAt
   const saved = chapters.filter((chapter) => list.includes(chapter.id)).length;
 
   return (
-    <div className="fixed inset-0 z-40 overflow-y-auto bg-bg text-fg">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Filme"
+      className="fixed inset-0 z-40 overflow-y-auto bg-bg text-fg"
+    >
       <div className="relative h-72 sm:h-96">
         <img src={poster} alt="" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-linear-to-t from-bg to-transparent" />
