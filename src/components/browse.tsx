@@ -105,7 +105,7 @@ export function Browse({
             onClick={onWho}
             className="grid size-11 place-items-center"
           >
-            <span className="grid size-8 place-items-center bg-red text-sm font-semibold">D</span>
+            <span className="grid size-8 place-items-center bg-red text-sm font-semibold">V</span>
           </button>
         </div>
       </header>

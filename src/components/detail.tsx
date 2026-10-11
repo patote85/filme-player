@@ -61,7 +61,7 @@ export function Detail({ list, accepted, onToggleList, onClose, onPlay, onPlayAt
           </div>
           <div>
             <dt className="text-muted">De</dt>
-            <dd className="mt-1 font-medium">Autor</dd>
+            <dd className="mt-1 font-medium">Nome Exemplo</dd>
           </div>
           <div>
             <dt className="text-muted">Música</dt>
